@@ -1,3 +1,9 @@
+###############################################################################
+## Barrage for Windows Memory Analysis v1.0
+## Written by James Lovato - CrowdStrike
+## Copyright 2021 CrowdStrike, Inc.
+###############################################################################
+
 import threading
 import queue
 import tqdm
