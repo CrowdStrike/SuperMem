@@ -1,5 +1,5 @@
 ###############################################################################
-## Barrage for Windows Memory Analysis v1.0
+## SuperMem for Windows Memory Analysis v1.0
 ## Written by James Lovato - CrowdStrike
 ## Copyright 2021 CrowdStrike, Inc.
 ###############################################################################
@@ -599,7 +599,7 @@ def main():
 
     # Define Argparser for Input
     triageOptions = {1: 'QuickTriage', 2: 'FullTriage', 3: 'ComprehensiveTriage'}
-    parser = ArgumentParser(description='winBarrage is a script to automate processing of a Windows memory images', formatter_class=RawTextHelpFormatter)
+    parser = ArgumentParser(description='winSuperMem is a script to automate processing of a Windows memory images', formatter_class=RawTextHelpFormatter)
     parser.add_argument('-f', '--fullpath=', type=str, help='Full path to memory file', required=True, dest='FullPath')
     parser.add_argument('-o', '--output=', type=str, help='Full path to output directory', required=True, dest='Output')
     parser.add_argument('-p', '--profile=', type=str, help='Volatility2 profile', required=False, dest='Vol2Profile')
