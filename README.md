@@ -11,9 +11,9 @@ A python script developed to process Windows memory images based on triage type.
 - Yara
 
 # How to use
-- Quick Triage: python3 winBarrage.py -f memdump.mem -o output/ -tt 1
-- Full Triage: python3 winBarrage.py -f memdump.mem -o output/ -tt 2
-- Comprehensive Triage: python3 winBarrage.py -f memdump.mem -o output/ -tt 3
+- Quick Triage: python3 winSuperMem.py -f memdump.mem -o output/ -tt 1
+- Full Triage: python3 winSuperMem.py -f memdump.mem -o output/ -tt 2
+- Comprehensive Triage: python3 winSuperMem.py -f memdump.mem -o output/ -tt 3
 
 # Installation
 1. Install Python 3
