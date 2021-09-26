@@ -10,10 +10,18 @@ A python script developed to process Windows memory images based on triage type.
 - Plaso
 - Yara
 
-# How to use
-- Quick Triage: python3 winSuperMem.py -f memdump.mem -o output/ -tt 1
-- Full Triage: python3 winSuperMem.py -f memdump.mem -o output/ -tt 2
-- Comprehensive Triage: python3 winSuperMem.py -f memdump.mem -o output/ -tt 3
+# How to Use
+## Quick Triage
+
+`python3 winSuperMem.py -f memdump.mem -o output/ -tt 1`
+
+## Full Triage
+
+`python3 winSuperMem.py -f memdump.mem -o output/ -tt 2`
+
+## Comprehensive Triage
+
+`python3 winSuperMem.py -f memdump.mem -o output/ -tt 3`
 
 # Installation
 1. Install Python 3
@@ -46,4 +54,4 @@ A python script developed to process Windows memory images based on triage type.
     
 # Troubleshooting
 There are a number of known bugs, which are outlined in this section.
-- Dumping files may not work on Windows images below Windows8. The offset supplied by the volatility3 filescan plugin is sometimes physical and not virtual. There is not a descriptor specifying which is returned as well. The current script is expecting virtual only. You can fix this by changing the dumpfiles function to --physaddr from --virtaddr. 
+- Dumping files may not work on Windows images below Windows8. The offset supplied by the volatility3 filescan plugin is sometimes physical and not virtual. There is not a descriptor specifying which is returned either. The current script is expecting virtual only. You can fix this by changing the dumpfiles function from `--virtaddr` to `--physaddr`.
