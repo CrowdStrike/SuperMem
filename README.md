@@ -34,6 +34,7 @@ A python script developed to process Windows memory images based on triage type.
 8. Install Plaso
 9. Install Yara
 10. Install Strings
+11. Install EVTxtract
 
 # How to Read the Output
 - Output directory structure of comprehensive triage:
@@ -42,7 +43,7 @@ A python script developed to process Windows memory images based on triage type.
     - DumpedFilesOutput - Dumped files in memory
     - DumpedModules - Dumped loaded drivers
     - DumpedProcessOutput - Dumped running processes
-    - DumpedRegistriy - Dumped loaded registry hives
+    - DumpedRegistry - Dumped loaded registry hives
     - EVTxtract - Extracted data with EVTxtract
     - IOCs.csv - Collected IPs identified in the output data set
     - Logging.log - Logging for the script
