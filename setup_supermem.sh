@@ -63,6 +63,6 @@ cd /opt/
 git clone --recursive https://github.com/Yara-Rules/rules.git
 
 #Setting up SuperMem
-git clone https://github.com/blueteam0ps/SuperMem.git
+git clone https://github.com/CrowdStrike/SuperMem.git
 cd SuperMem
 pip3 install -r requirements.txt
