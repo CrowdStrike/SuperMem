@@ -38,8 +38,8 @@ cd volatility3/
 pip3 install -r requirements.txt
 python3 setup.py build
 python3 setup.py install
-mv vol.py vol3.py
-cp vol3.py /usr/bin/
+mv vol.py vol3
+cp vol3 /usr/bin/
 
 
 #Download Volatility plugins
