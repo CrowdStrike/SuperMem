@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 ###############################################################################
 ## SuperMem for Windows Memory Analysis v1.0
 ## Written by James Lovato - CrowdStrike
