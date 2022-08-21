@@ -64,7 +64,8 @@ QUICKTRIAGEPLUGINS = [{"plugin": "windows.pstree.PsTree", "params": ""},
                       {"plugin": "windows.pslist.PsList", "params": ""},
                       {"plugin": "windows.registry.hivelist.HiveList", "params": ""},
                       {"plugin": "windows.ssdt.SSDT", "params": ""},
-                      {"plugin": "windows.registry.hivescan.HiveScan", "params": ""}]
+                      {"plugin": "windows.registry.hivescan.HiveScan", "params": ""}],
+                      {"plugin": "windows.ldrmodules.LdrModules", "params": ""}]
 
 # Volatility3 Plugins for Full Triage
 FULLTRIAGEPLUGINS = [{"plugin": "windows.modscan.ModScan", "params": ""},
