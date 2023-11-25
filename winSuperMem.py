@@ -34,6 +34,7 @@ YARARULESFILE = "/path/to/yara/Yarafile.txt"
 
 # Globals for Output Files and Paths
 VOL3outputDir = "Volatility3"
+VOL3CONFIG = os.path.join(VOL3outputDir, "vol3_config")
 VOL2outputDir = "Volatility2"
 BEoutputDir = "BEoutputDir"
 STRINGSoutputDir = "Strings"
@@ -173,7 +174,7 @@ def volatility3Queue(chosenPlugins, memFullPath, outputDir):
     # Used to Only Download the PDB Once
     printLoggingLogic("Setting up symbols for Volatility3 with windows.info.Info", False, "INFO")
     pluginName = "windows.info.Info"
-    cmd = VOL3PATH + " -f " + '\"' + memFullPath + '\"' + " -r csv " + pluginName + " 2> " \
+    cmd = VOL3PATH + " --save-config " + VOL3CONFIG + " -f " + '\"' + memFullPath + '\"' + " -r csv " + pluginName + " 2> " \
           + os.path.join(vol3outputDir, pluginName + ".err") + " > " + os.path.join(vol3outputDir,
                                                                                     pluginName + ".csv")
     runCMD(cmd, "Volatility3 plugin windows.info.Info")
@@ -182,7 +183,7 @@ def volatility3Queue(chosenPlugins, memFullPath, outputDir):
     for p in chosenPlugins:
         pluginName = p['plugin']
         params = p['params']
-        cmd = VOL3PATH + " -f " + '\"' + memFullPath + '\"' + " -r csv " + pluginName + " " + params + " 2> " \
+        cmd = VOL3PATH + " -c " + VOL3CONFIG + " -f " + '\"' + memFullPath + '\"' + " -r csv " + pluginName + " " + params + " 2> " \
               + os.path.join(vol3outputDir, pluginName + ".err") + " > " + os.path.join(vol3outputDir,
                                                                                         pluginName + ".csv")
         data = {'Name': "Volatility3 plugin " + pluginName, 'CMD': cmd}
@@ -359,7 +360,7 @@ def dumpFilesQueue(outputDir, memFullPath, filetypes, filepaths):
                     if exportfilename.endswith(tuple(filetypes)) or (
                             "\\".join(exportfilename.split('\\')[:-1]) in filepaths) or len(filetypes) == 0:
                         virtAddr = row["Offset"]
-                        cmd = VOL3PATH + " -f " + '\"' + memFullPath + '\"' + " -o " + dumpFilesDir + \
+                        cmd = VOL3PATH + " -c " + VOL3CONFIG + " -f " + '\"' + memFullPath + '\"' + " -o " + dumpFilesDir + \
                               " windows.dumpfiles.DumpFiles --virtaddr " + virtAddr + " > /dev/null 2>&1"
                         data = {'Name': "File Dumping for File " + exportfilename, 'CMD': cmd}
                         output.append(data)
@@ -381,7 +382,7 @@ def dumpDllsQueue(outputDir, memFullPath):
         os.mkdir(dumpDllsOutput)
 
     # Create Command to Dump Loaded DLLs with Volatility3
-    cmd = VOL3PATH + " -f " + '\"' + memFullPath + '\"' + " -o " + dumpDllsOutput + " windows.dlllist.DllList --dump > /dev/null 2>&1"
+    cmd = VOL3PATH + " -c " + VOL3CONFIG + " -f " + '\"' + memFullPath + '\"' + " -o " + dumpDllsOutput + " windows.dlllist.DllList --dump > /dev/null 2>&1"
     data = {'Name': "Dumping DLLs", 'CMD': cmd}
     output.append(data)
 
@@ -398,7 +399,7 @@ def dumpProcessesQueue(outputDir, memFullPath):
         os.mkdir(dumpProcessOutput)
 
     # Create Command to Dump Loaded Processes with Volatility3
-    cmd = VOL3PATH + " -f " + '\"' + memFullPath + '\"' + " -o " + dumpProcessOutput + " windows.pslist.PsList --dump > /dev/null 2>&1"
+    cmd = VOL3PATH + " -c " + VOL3CONFIG + " -f " + '\"' + memFullPath + '\"' + " -o " + dumpProcessOutput + " windows.pslist.PsList --dump > /dev/null 2>&1"
     data = {'Name': "Dumping Processes", 'CMD': cmd}
     output.append(data)
 
@@ -415,7 +416,7 @@ def dumpModulesQueue(outputDir, memFullPath):
         os.mkdir(dumpModulesOutput)
 
     # Create Command to Dump Loaded Modules with Volatility3
-    cmd = VOL3PATH + " -f " + '\"' + memFullPath + '\"' + " -o " + dumpModulesOutput + " windows.modscan.ModScan --dump > /dev/null 2>&1"
+    cmd = VOL3PATH + " -c " + VOL3CONFIG + " -f " + '\"' + memFullPath + '\"' + " -o " + dumpModulesOutput + " windows.modscan.ModScan --dump > /dev/null 2>&1"
     data = {'Name': "Dumping Modules", 'CMD': cmd}
     output.append(data)
 
@@ -432,7 +433,7 @@ def dumpRegistryQueue(outputDir, memFullPath):
         os.mkdir(dumpRegistryOutput)
 
     # Create Command to Dump Loaded Registry Hives with Volatility3
-    cmd = VOL3PATH + " -f " + '\"' + memFullPath + '\"' + " -o " + dumpRegistryOutput + " windows.registry.hivelist.HiveList --dump > /dev/null 2>&1"
+    cmd = VOL3PATH + " -c " + VOL3CONFIG + " -f " + '\"' + memFullPath + '\"' + " -o " + dumpRegistryOutput + " windows.registry.hivelist.HiveList --dump > /dev/null 2>&1"
     data = {'Name': "Dumping Registry", 'CMD': cmd}
     output.append(data)
 
